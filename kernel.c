@@ -4,8 +4,9 @@
 
 void kmain()
 {
+	enableCursor(0,24);
 	clearScreen();
-	print("Welcome to MatteOS");
-
+	println("Welcome to MatteOS");
+	print("\nThis operating system is currently under development");
 	return;
 }
