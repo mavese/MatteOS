@@ -17,4 +17,5 @@ section	.text
 
 
 section	.bss
-	stackBuffer: resb 8192			; Declaring space for a the stack currently only 8KB
+	resb 8192			; Declaring space for a the stack currently only 8KB
+	stackBuffer:

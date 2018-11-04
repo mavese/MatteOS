@@ -1,10 +1,11 @@
 #include "Libs/screen.h"
 // #include "Libs/types.h"
+#include <stdio.h>
 
 void kmain()
 {
 	clearScreen();
-	// clearLines(1,1);
+	print("Welcome to MatteOS");
 
 	return;
 }

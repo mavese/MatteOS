@@ -5,7 +5,7 @@
 #include "string.h"
 #include "system.h"
 
-uint8 screenWidth = 80, screenHeight = 25, screenDepth = 2;
+const uint8 screenWidth = 80, screenHeight = 25, screenDepth = 2;
 
 void clearScreen()
 {
@@ -24,7 +24,7 @@ void clearLines(uint8 _start, uint8 _end)
 {
 	uint16 i = _start * screenWidth * screenDepth;
 	char *vidMemPointer = (char*) 0xb8000;
-	uint16 final = (_end + 1) * 80 * 2;
+	uint16 final = (_end + 1) * screenWidth * 2;
 	while (i < final)
 	{
 		vidMemPointer[i] = 0x0;
