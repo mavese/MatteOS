@@ -68,6 +68,13 @@ void printchar(char ch)
 	string vidMemPointer = (string) 0xb8000;
 	switch(ch)
 	{
+		case 0x8:
+			if (cursorX)
+			{
+				--cursorX;
+				vidMemPointer[(cursorY * screenWidth * screenDepth) + (cursorX * screenDepth)] = 0x0;
+			}
+			break;
 		case '\n':
 			++cursorY;
 			cursorX = 0;
@@ -81,8 +88,8 @@ void printchar(char ch)
 			++cursorX;
 			break;
 	}
-	updateCursor();
 	newLine();
+	updateCursor();
 	return;
 }
 

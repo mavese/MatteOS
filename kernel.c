@@ -1,12 +1,17 @@
-#include "Libs/screen.h"
-// #include "Libs/types.h"
-#include <stdio.h>
+// #include "Libs/screen.h"
+#include "Libs/keyboard.h"
 
 void kmain()
 {
 	enableCursor(0,24);
 	clearScreen();
 	println("Welcome to MatteOS");
-	print("\nThis operating system is currently under development");
+	println("\nThis operating system is currently under development");
+	while(1)
+	{
+		print("MatteOS/>");
+		string s = readIn();
+		println(s);
+	}
 	return;
 }
