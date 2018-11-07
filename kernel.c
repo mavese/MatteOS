@@ -5,13 +5,13 @@ void kmain()
 {
 	enableCursor(0,24);
 	clearScreen();
-	println("Welcome to MatteOS");
-	println("\nThis operating system is currently under development");
+	printLn("Welcome to MatteOS");
+	printLn("\nThis operating system is currently under development");
 	while(1)
 	{
 		print("MatteOS/>");
-		string s = readIn();
-		println(s);
+		char s[256];
+		readIn(s);
 	}
 	return;
 }

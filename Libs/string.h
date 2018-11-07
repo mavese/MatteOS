@@ -30,6 +30,7 @@ uint8 strCmp(string s1, string s2)
 			}
 		}
 	}
+	return result;
 }
 
 #endif

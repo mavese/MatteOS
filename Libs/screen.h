@@ -34,7 +34,7 @@ void clearLines(uint8 _start, uint8 _end)
 
 void clearScreen()
 {
-	clearLines(0,screenHeight);
+	clearLines(0,screenHeight-1);
 	cursorX = 0;
 	cursorY = 0;
 	updateCursor();
@@ -63,7 +63,7 @@ void newLine()
 	}
 }
 
-void printchar(char ch)
+void printChar(char ch)
 {
 	string vidMemPointer = (string) 0xb8000;
 	switch(ch)
@@ -97,16 +97,31 @@ void print(string _str)
 {
 	for (uint8 strPtr = 0; strPtr < len(_str); ++strPtr)
 	{
-		printchar(_str[strPtr]);
+		printChar(_str[strPtr]);
 	}
 	return;
 }
 
-void println(string _str)
+void printLn(string _str)
 {
 	print(_str);
-	printchar('\n');
+	printChar('\n');
 	return;
+}
+
+void printInt(uint32 i)
+{
+	if (i > 0)
+	{
+		printInt(i/10);
+		printChar((uint8)i%10+48);
+	}
+}
+
+void printIntLn(uint32 i)
+{
+	printInt(i);
+	printChar('\n');
 }
 
 void changeColor(uint8 _color)
