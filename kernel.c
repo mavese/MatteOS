@@ -1,4 +1,3 @@
-// #include "Libs/screen.h"
 #include "Libs/keyboard.h"
 
 void kmain()
@@ -10,7 +9,7 @@ void kmain()
 	while(1)
 	{
 		print("MatteOS/>");
-		char s[256];
+		string s;
 		readIn(s);
 	}
 	return;

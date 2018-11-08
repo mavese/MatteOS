@@ -22,7 +22,7 @@ void updateCursor()
 void clearLines(uint8 _start, uint8 _end)
 {
 	uint16 i = _start * screenWidth * screenDepth;
-	char *vidMemPointer = (char*) 0xb8000;
+	string vidMemPointer = (string) 0xb8000;
 	uint16 final = (_end + 1) * screenWidth * 2;
 	while (i < final)
 	{
@@ -86,6 +86,11 @@ void printChar(char ch)
 			vidMemPointer[(cursorY * (screenWidth * screenDepth)) + (cursorX * screenDepth)] = ch;
 			vidMemPointer[(cursorY * (screenWidth * screenDepth)) + (cursorX * screenDepth + 1)] = color;
 			++cursorX;
+			if (cursorX > 80)
+			{
+				cursorX = 0;
+				++cursorY;
+			}
 			break;
 	}
 	newLine();

@@ -33,4 +33,17 @@ uint8 strCmp(string s1, string s2)
 	return result;
 }
 
+int16 strContainsChar(string s, char c)
+{
+	int16 result = -1;
+	for (uint8 i = 0; i < len(s); ++i)
+	{
+		if (s[i] == c)
+		{
+			result = i;
+		}
+	}
+	return result;
+}
+
 #endif
