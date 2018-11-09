@@ -1,4 +1,5 @@
 #include "Libs/keyboard.h"
+#include "Libs/commands.h"
 
 void kmain()
 {
@@ -11,6 +12,7 @@ void kmain()
 		print("MatteOS/>");
 		string s;
 		readIn(s);
+		processCommand(s);
 	}
 	return;
 }
