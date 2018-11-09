@@ -63,17 +63,34 @@ void newLine()
 	}
 }
 
+uint8 findX()
+{
+	print("Here");
+	string vidMemPointer = (string) 0xb8000;
+	uint8 i = 0;
+	while (vidMemPointer[(cursorY * (screenWidth * screenDepth)) + (i * screenDepth)]) ++i;
+	return i;
+}
+
 void printChar(char ch)
 {
 	string vidMemPointer = (string) 0xb8000;
 	switch(ch)
 	{
 		case 0x8:
-			if (cursorX)
-			{
-				--cursorX;
+			// if (cursorX)
+			// {
+				if (cursorX)
+				{
+					--cursorX;
+				}
+				else
+				{
+					--cursorY;
+					cursorX = findX();
+				}
 				vidMemPointer[(cursorY * screenWidth * screenDepth) + (cursorX * screenDepth)] = 0x0;
-			}
+			// }
 			break;
 		case '\n':
 			++cursorY;
